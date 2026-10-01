@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  /* EchoTech Official Brand Colors */
+  --color-cotton-white: #FCFCFD;
+  --color-cloud-gray: #F4F5F7;
+  --color-mist-gray: #E8EBF0;
+
+  --color-ice-blue: #D8F2FF;
+  --color-sky-blue: #8ED8FF;
+  --color-azure-blue: #5DA9FF;
+  --color-ocean-blue: #3E82FF;
+
+  --color-amber-orange: #FFBC5E;
+  --color-lemon-yellow: #F5E45B;
+  --color-sunset-orange: #FF934D;
+
+  --color-lime-green: #B6ED5B;
+  --color-emerald-green: #34C985;
+  --color-mint-green: #68E3B7;
+
+  --color-coral-pink: #FFA7C9;
+  --color-blossom-pink: #F58AC7;
+
+  --color-lavender: #D7B6FF;
+  --color-violet: #A874FF;
+  --color-deep-purple: #7D5CFF;
+
+  /* Additional Grays for Typography */
+  --color-slate-50: #fafafa;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+
+  /* Semantic Colors */
+  --color-bg-base: #ffffff;
+  --color-bg-secondary: #fafafa;
+  --color-text-primary: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-600);
+  --color-text-muted: var(--color-slate-400);
+
+  /* Typography */
+  --font-sans: 'Inter', 'Manrope', system-ui, -apple-system, sans-serif;
+  
+  /* Text Sizes (Tokens) */
+  --text-h1: clamp(40px, 4vw, 64px);
+  --text-h1--line-height: 1.05;
+  --text-h1--tracking: -0.02em;
+  
+  --text-h2: clamp(32px, 3.5vw, 48px);
+  --text-h2--line-height: 1.1;
+  --text-h2--tracking: -0.01em;
+
+  --text-body-large: clamp(18px, 1.5vw, 20px);
+  --text-body-large--line-height: 1.6;
+
+  /* Radius */
+  --radius-full: 9999px;
+  --radius-3xl: 32px;
+  --radius-2xl: 24px;
+  --radius-xl: 16px;
+  --radius-lg: 12px;
+  --radius-card: 20px;
+
+  /* Shadows - Subtle & Premium */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 30px -4px rgba(0, 0, 0, 0.05);
+  --shadow-ambient: 0 20px 40px -12px rgba(0,0,0,0.06);
+
+  /* Motion Tokens */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+}
+
+@layer base {
+  :root {
+    --background: var(--color-bg-base);
+    --foreground: var(--color-text-primary);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+  }
+
+  /* Utility classes for text gradients and atmospheric backgrounds */
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+  }
+  
+  .bg-ambient-gradient {
+    background: radial-gradient(circle at top left, #f3e8ff 0%, transparent 40%),
+                radial-gradient(circle at bottom right, #eef2ff 0%, transparent 40%);
+  }
+}

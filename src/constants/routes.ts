@@ -1,0 +1,20 @@
+export const ROUTES = {
+  SPLASH: '/',
+
+  AUTH: '/auth',
+  HOME: '/home',
+  PROFILE: '/profile',
+  ABOUT: '/about',
+  PROJECTS: '/projects',
+  PROJECT_DETAIL: (id: string) => `/project/${id}`,
+  PRODUCTS: '/products',
+  PRODUCT_DETAIL: (id: string) => `/product/${id}`,
+  EXPERIENCE: '/experience',
+  RESUME: '/resume',
+  CONTACT: '/contact',
+  AI: '/ai',
+  ANALYTICS: '/analytics',
+  SETTINGS: '/settings',
+  PRIVACY: '/privacy',
+  TERMS: '/terms',
+};
