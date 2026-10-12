@@ -12,7 +12,7 @@ export const HumanAndAISection: React.FC = () => {
   // They start apart and move towards the center
   const leftX = useTransform(scrollYProgress, [0.3, 0.6], ["-50%", "0%"]);
   const rightX = useTransform(scrollYProgress, [0.3, 0.6], ["50%", "0%"]);
-  
+
   // They fade in
   const opacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
 
@@ -22,10 +22,10 @@ export const HumanAndAISection: React.FC = () => {
 
   return (
     <section ref={containerRef} className="w-full h-[150vh] relative bg-slate-50 flex items-center justify-center overflow-hidden" id="human-and-ai">
-      
+
       {/* Sticky container to hold the visual while scrolling */}
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
-        
+
         <div className="text-center z-30 absolute top-[15vh]">
           <h2 className="text-[clamp(32px,4vw,56px)] font-bold text-slate-900 tracking-tight leading-[1.1] mb-6">
             Two halves of a perfect whole.
@@ -38,9 +38,9 @@ export const HumanAndAISection: React.FC = () => {
 
         {/* The Conceptual Visual */}
         <div className="relative w-full max-w-[1200px] h-[400px] flex items-center justify-center mt-10">
-          
+
           {/* Left: Human */}
-          <motion.div 
+          <motion.div
             style={{ x: leftX, opacity }}
             className="absolute left-1/2 -translate-x-[105%] flex flex-col items-end text-right"
           >
@@ -59,7 +59,7 @@ export const HumanAndAISection: React.FC = () => {
           </motion.div>
 
           {/* Right: AI */}
-          <motion.div 
+          <motion.div
             style={{ x: rightX, opacity }}
             className="absolute right-1/2 translate-x-[105%] flex flex-col items-start text-left"
           >
@@ -78,16 +78,16 @@ export const HumanAndAISection: React.FC = () => {
           </motion.div>
 
           {/* Center Connection Point */}
-          <motion.div 
+          <motion.div
             style={{ scale: sparkScale, opacity: sparkOpacity }}
             className="absolute z-20 w-32 h-32 rounded-full flex items-center justify-center bg-white shadow-[0_0_60px_rgba(255,255,255,1)]"
           >
             <div className="absolute inset-0 rounded-full border-2 border-slate-100 animate-ping opacity-50" />
-            <img src="/assets/echotech-icon.png" alt="EchoTech" loading="lazy" className="w-24 md:w-28 h-auto object-contain relative z-10 drop-shadow-xl" />
+            <img src="/assets/echotech-icon.png" alt="EchoTech" loading="lazy" width="112" height="58" className="w-24 md:w-28 h-auto object-contain relative z-10 drop-shadow-xl" />
           </motion.div>
 
         </div>
-        
+
       </div>
 
     </section>

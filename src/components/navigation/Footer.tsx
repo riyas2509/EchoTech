@@ -7,11 +7,11 @@ export const Footer: React.FC = () => {
   return (
     <footer className="w-full bg-white border-t border-slate-100 py-12 md:py-16">
       <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-2 md:grid-cols-6 gap-12 md:gap-8">
-        
+
         {/* Brand Section */}
         <div className="col-span-2 md:col-span-2 flex flex-col items-start">
           <div className="flex flex-col items-start gap-4 mb-6">
-            <img src="/assets/echotech-icon.png" alt="EchoTech" loading="lazy" className="h-10 md:h-14 w-auto object-contain" />
+            <img src="/assets/echotech-icon.png" alt="EchoTech" loading="lazy" width="109" height="56" className="h-10 md:h-14 w-auto object-contain" />
           </div>
           <p className="text-slate-500 text-[15px] font-medium leading-relaxed max-w-[250px]">
             Intelligent, human-centered software.<br/>Turn ideas into outcomes.
@@ -54,7 +54,7 @@ export const Footer: React.FC = () => {
         </div>
 
       </div>
-      
+
       <div className="max-w-[1400px] mx-auto px-6 mt-16 pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="text-slate-400 text-[13px]">
           &copy; {new Date().getFullYear()} EchoTech. All rights reserved.

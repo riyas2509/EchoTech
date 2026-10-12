@@ -6,20 +6,20 @@ export const EngineeringResearchSection: React.FC = () => {
   return (
     <section className="w-full pt-[100px] pb-16 md:py-24 bg-slate-900 text-white overflow-hidden" id="engineering">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 xl:px-16">
-        
+
         <div className="text-center mb-12 max-w-[800px] mx-auto">
-          <h2 className="text-[clamp(32px,3.5vw,48px)] font-bold text-white tracking-tight leading-[1.1] mb-6">
+          <h1 className="text-[clamp(32px,3.5vw,48px)] font-bold text-white tracking-tight leading-[1.1] mb-6">
             Built for scale. Designed for speed.
-          </h2>
+          </h1>
           <p className="text-[18px] md:text-[20px] text-slate-400 font-medium leading-[1.6]">
             EchoTech's architecture is focused on thoughtful design, efficient processing, and establishing scalable foundations for intelligence.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          
+
           {/* Card 1: Efficient Processing */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -39,7 +39,7 @@ export const EngineeringResearchSection: React.FC = () => {
           </motion.div>
 
           {/* Card 2: Modular Systems */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -60,7 +60,7 @@ export const EngineeringResearchSection: React.FC = () => {
           </motion.div>
 
           {/* Card 3: Scalable Foundations */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -81,9 +81,9 @@ export const EngineeringResearchSection: React.FC = () => {
           </motion.div>
 
         </div>
-        
+
         {/* Connection Visual */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -94,8 +94,8 @@ export const EngineeringResearchSection: React.FC = () => {
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-slate-700" />
            </div>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

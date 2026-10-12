@@ -47,17 +47,19 @@ export const ContactSection: React.FC = () => {
       <div className="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-mist-gray rounded-full blur-[100px] opacity-50 pointer-events-none" />
 
       <div className="relative z-10 max-w-[1200px] w-full flex flex-col items-center">
-        
+
         {/* Icon & Eyebrow */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex flex-col items-center mb-8"
         >
-          <img 
-            src="/assets/echotech-icon.png" 
-            alt="EchoTech Icon" 
+          <img
+            src="/assets/echotech-icon.png"
+            alt="EchoTech Icon"
+            width="48"
+            height="48"
             className="w-12 h-12 object-contain mb-6"
             loading="eager"
           />
@@ -67,7 +69,7 @@ export const ContactSection: React.FC = () => {
         </motion.div>
 
         {/* Hero Heading */}
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
@@ -77,7 +79,7 @@ export const ContactSection: React.FC = () => {
         </motion.h1>
 
         {/* Subtitle */}
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
@@ -105,8 +107,8 @@ export const ContactSection: React.FC = () => {
               <p className="text-[15px] text-slate-500 leading-[1.6] mb-8 flex-grow">
                 {option.description}
               </p>
-              
-              <a 
+
+              <a
                 href={`mailto:${contactEmail}?subject=${encodeURIComponent(option.subject)}`}
                 className="inline-flex items-center gap-2 text-[15px] font-bold text-slate-900 hover:text-slate-600 transition-colors mt-auto outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 rounded-sm"
               >

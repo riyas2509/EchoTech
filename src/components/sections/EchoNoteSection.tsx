@@ -1,49 +1,55 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, MessageSquare, Clock, FileText } from 'lucide-react';
+import { trackEvent } from '@/utils/analytics';
 
 export const EchoNoteSection: React.FC = () => {
   return (
     <section className="w-full min-h-[85vh] py-24 flex items-center bg-white relative overflow-hidden" id="echonote">
-      
+
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 xl:px-16 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-        
+
         {/* Left: Product Narrative */}
         <div className="flex flex-col items-start z-10 max-w-[560px]">
-          
-          <div className="flex flex-col gap-2 mb-8">
-            <span className="text-[12px] font-bold text-ocean-blue uppercase tracking-widest">The Product Ecosystem &mdash; Stage 1: Capture</span>
-            <div className="w-14 h-14 rounded-2xl bg-ice-blue border border-sky-blue/30 flex items-center justify-center shadow-sm">
-              <img src="/assets/echotech-icon.png" alt="EchoNote" loading="lazy" className="h-7 w-auto object-contain" />
-            </div>
+
+          <div className="flex flex-wrap items-center gap-2 mb-4">
+            <span className="text-[12px] font-bold text-ocean-blue uppercase tracking-widest">Stage 1: Capture</span>
+            <span className="px-3 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-bold uppercase tracking-wider border border-emerald-200">
+              Live Product
+            </span>
           </div>
-          
+
+          <div className="w-14 h-14 rounded-2xl bg-ice-blue border border-sky-blue/30 flex items-center justify-center shadow-sm mb-6">
+            <img src="/assets/echonote-icon.png" alt="EchoNote Logo" loading="lazy" width="32" height="32" className="h-8 w-8 object-contain" />
+          </div>
+
           <h2 className="text-[clamp(36px,4vw,56px)] font-bold text-slate-900 leading-[1.1] tracking-tight mb-6">
             EchoNote
           </h2>
-          
+
           <p className="text-[18px] md:text-[20px] text-slate-500 font-medium leading-[1.6] mb-10">
-            Never lose the context of a conversation again. Capture meetings, and let our enterprise-first audio intelligence workspace transform your conversations into structured knowledge, actionable tasks, and a searchable timeline with built-in organizational control and data governance.
+            Never lose the context of a conversation again. Capture meetings and voice discussions, and let our audio intelligence workspace transform your conversations into structured knowledge, actionable tasks, and a searchable timeline with data governance.
           </p>
-          
-          <a 
-            href="https://echonote-25.vercel.app/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="group inline-flex w-fit items-center justify-center gap-2 px-8 h-[56px] rounded-full bg-ocean-blue text-white text-[15px] font-bold hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl hover:-translate-y-[1px]"
+
+          <a
+            href="https://echonote-25.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackEvent('outbound_product_click', { product: 'echonote', source: 'echonote_section' })}
+            className="group inline-flex w-fit items-center justify-center gap-2 px-8 h-[56px] rounded-full bg-ocean-blue text-white text-[15px] font-bold hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl hover:-translate-y-[1px] outline-none focus-visible:ring-2 focus-visible:ring-ocean-blue"
           >
-            Open EchoNote
+            Launch EchoNote (Live App)
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
 
         {/* Right: Massive UI Visualization (Ice Blue Theme) */}
         <div className="relative w-full h-[600px] flex items-center justify-center">
-          
+
           <div className="absolute inset-0 bg-ice-blue/40 rounded-full blur-[100px] z-0" />
 
           {/* Main App UI Mockup */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -61,11 +67,11 @@ export const EchoNoteSection: React.FC = () => {
 
             {/* Content Area */}
             <div className="p-8 flex flex-col gap-8 bg-white/50 backdrop-blur-md h-[450px]">
-              
+
               {/* Waveform Animation */}
               <div className="flex items-end justify-center gap-1 h-24 mb-4">
                 {[...Array(40)].map((_, i) => (
-                  <motion.div 
+                  <motion.div
                     key={i}
                     animate={{ height: ["20%", `${Math.random() * 80 + 20}%`, "20%"] }}
                     transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.05 }}
@@ -83,7 +89,7 @@ export const EchoNoteSection: React.FC = () => {
                   </div>
                   <span className="text-[14px] font-bold text-slate-800">Finalize Q3 Marketing Budget</span>
                 </div>
-                
+
                 <div className="bg-ice-blue p-5 rounded-2xl border border-sky-blue/30 shadow-sm flex flex-col gap-3">
                   <div className="flex items-center gap-2 text-ocean-blue">
                     <MessageSquare size={18} />
@@ -109,7 +115,7 @@ export const EchoNoteSection: React.FC = () => {
           </motion.div>
 
           {/* Floating Accents */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}

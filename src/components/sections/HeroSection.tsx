@@ -1,85 +1,107 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, MessageSquare, GitPullRequest, Settings, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, MessageSquare, GitPullRequest, Settings, CheckCircle2, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { trackEvent } from '@/utils/analytics';
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative w-full h-[90vh] min-h-[700px] flex flex-col justify-center items-center bg-cotton-white overflow-hidden">
-      
+    <section className="relative w-full min-h-[720px] lg:min-h-[780px] flex flex-col justify-center items-center bg-cotton-white overflow-hidden py-16 lg:py-24">
+
       {/* Ambient Abstract Background */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
         <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-ice-blue/40 rounded-full blur-[120px] opacity-70" />
         <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-lavender/30 rounded-full blur-[100px] opacity-60" />
       </div>
 
-      <div className="max-w-[1400px] w-full mx-auto px-6 md:px-12 xl:px-16 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-20 items-center z-10 h-full pt-16">
-        
+      <div className="max-w-[1400px] w-full mx-auto px-6 md:px-12 xl:px-16 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-20 items-center z-10 h-full">
+
         {/* Left: Typography */}
-        <div className="flex flex-col items-start text-left max-w-[600px] mt-12 lg:mt-0">
+        <div className="flex flex-col items-start text-left max-w-[620px] mt-6 lg:mt-0">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="mb-8"
+            className="mb-6 flex items-center gap-3"
           >
-            <div className="h-20 md:h-24 px-6 md:px-8 bg-white rounded-[24px] flex items-center justify-center shadow-md border border-mist-gray">
-              <img src="/assets/echotech-icon.png" alt="EchoTech" className="h-10 md:h-12 w-auto object-contain" />
+            <div className="h-16 md:h-20 px-5 md:px-6 bg-white rounded-[20px] flex items-center justify-center shadow-sm border border-mist-gray">
+              <img src="/assets/echotech-icon.png" alt="EchoTech Logo" width="78" height="40" className="h-8 md:h-10 w-auto object-contain" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[12px] font-bold text-slate-400 uppercase tracking-widest">Digital Headquarters</span>
+              <span className="text-[15px] font-bold text-slate-800 tracking-tight">EchoTech Ecosystem</span>
             </div>
           </motion.div>
 
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-            className="text-[clamp(40px,5vw,68px)] font-bold text-slate-900 tracking-tight leading-[1.05] mb-6"
+            className="text-[clamp(38px,4.8vw,64px)] font-bold text-slate-900 tracking-tight leading-[1.08] mb-6"
           >
             Building software that helps people think clearly and turn ideas into outcomes.
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="text-[18px] md:text-[20px] text-slate-500 font-medium leading-[1.6] mb-10 max-w-[480px]"
+            className="text-[18px] md:text-[20px] text-slate-500 font-medium leading-[1.6] mb-8 max-w-[520px]"
           >
-            EchoTech is a connected ecosystem of human-centered intelligent software designed to reduce repetitive work and bridge the gap between thinking and doing.
+            EchoTech is an ecosystem of human-centered intelligent software designed to reduce repetitive cognitive load and bridge the gap between thinking and doing.
           </motion.p>
 
-          <motion.div 
+          {/* Product Availability Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.25 }}
+            className="mb-8 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[12px] text-slate-600 font-medium"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span><strong>EchoNote</strong> is live &middot; Explore the connected workflow</span>
+          </motion.div>
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
           >
-            <Link 
-              to="/explore" 
-              onClick={() => window.scrollTo(0,0)}
+            <a
+              href="https://echonote-25.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent('outbound_product_click', { product: 'echonote', source: 'hero_primary_cta' })}
               className="group flex items-center justify-center gap-2 px-8 h-[56px] rounded-full bg-slate-900 text-white text-[15px] font-bold hover:bg-slate-800 transition-all w-full sm:w-auto shadow-md hover:shadow-lg hover:-translate-y-[1px] outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2"
             >
-              Explore EchoTech
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link 
-              to="/products" 
-              onClick={() => window.scrollTo(0,0)}
-              className="flex items-center justify-center px-8 h-[56px] rounded-full bg-white text-slate-900 text-[15px] font-bold border border-mist-gray hover:bg-cloud-gray transition-colors w-full sm:w-auto shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2"
+              Try EchoNote (Live App)
+              <ExternalLink size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform opacity-80" />
+            </a>
+            <Link
+              to="/explore"
+              onClick={() => {
+                trackEvent('cta_click', { cta: 'explore_echotech_hero', destination: '/explore' });
+                window.scrollTo(0,0);
+              }}
+              className="flex items-center justify-center gap-2 px-8 h-[56px] rounded-full bg-white text-slate-900 text-[15px] font-bold border border-mist-gray hover:bg-cloud-gray transition-colors w-full sm:w-auto shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2"
             >
-              Start with EchoNote
+              Explore Ecosystem
+              <ArrowRight size={16} />
             </Link>
           </motion.div>
         </div>
 
         {/* Right: The Cinematic UI Visualization */}
         <div className="relative w-full h-[600px] hidden lg:flex items-center justify-center">
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
             className="relative w-full max-w-[650px] bg-white/70 backdrop-blur-2xl rounded-[40px] p-8 shadow-ambient border border-white flex flex-col gap-6"
           >
-            
+
             {/* Conversation Input Simulation */}
             <div className="flex gap-4 items-end mb-4">
               <div className="w-12 h-12 rounded-full bg-cloud-gray border border-mist-gray flex items-center justify-center shrink-0">
@@ -95,7 +117,7 @@ export const HeroSection: React.FC = () => {
             {/* Magic Extraction */}
             <div className="flex items-center justify-center py-2">
               <div className="w-[2px] h-8 bg-gradient-to-b from-ocean-blue to-violet relative">
-                <motion.div 
+                <motion.div
                   animate={{ top: ['0%', '100%', '0%'] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                   className="absolute left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-white shadow-[0_0_10px_rgba(168,116,255,1)]"
@@ -105,7 +127,7 @@ export const HeroSection: React.FC = () => {
 
             {/* Structured Output Cards */}
             <div className="grid grid-cols-2 gap-4">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1 }}
@@ -118,7 +140,7 @@ export const HeroSection: React.FC = () => {
                 <span className="text-[16px] font-bold text-slate-900 leading-tight">Delay enterprise to Q4</span>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
@@ -133,7 +155,7 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Automation execution */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.6 }}
@@ -149,9 +171,9 @@ export const HeroSection: React.FC = () => {
             </motion.div>
 
           </motion.div>
-          
+
           {/* Floating UI Accents */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 1.8 }}

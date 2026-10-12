@@ -1,47 +1,62 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Flag, ArrowRight, LineChart, Target } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { trackEvent } from '@/utils/analytics';
 
 export const LifeCapitalSection: React.FC = () => {
   return (
     <section className="w-full min-h-[85vh] py-24 flex items-center bg-white relative overflow-hidden" id="lifecapital">
-      
+
       {/* Background Element */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-lime-green/5 via-transparent to-transparent pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 xl:px-16 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-        
+
         {/* Left: Product Narrative */}
         <div className="flex flex-col items-start z-10 max-w-[560px]">
-          
-          <div className="flex flex-col gap-2 mb-8">
+
+          <div className="flex flex-wrap items-center gap-2 mb-4">
             <span className="text-[12px] font-bold text-emerald-green uppercase tracking-widest">Stage 5: Sustain</span>
-            <div className="w-14 h-14 rounded-2xl bg-lime-green/10 border border-lime-green/20 flex items-center justify-center shadow-sm">
-              <img src="/assets/echotech-icon.png" alt="LifeCapital" loading="lazy" className="h-7 w-auto object-contain" />
-            </div>
+            <span className="px-3 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold uppercase tracking-wider border border-slate-200">
+              In Product Architecture
+            </span>
           </div>
-          
+
+          <div className="w-14 h-14 rounded-2xl bg-lime-green/10 border border-lime-green/20 flex items-center justify-center shadow-sm mb-6">
+            <img src="/assets/lifecapital-icon.png" alt="LifeCapital Logo" loading="lazy" width="32" height="32" className="h-8 w-8 object-contain" />
+          </div>
+
           <h2 className="text-[clamp(36px,4vw,56px)] font-bold text-slate-900 leading-[1.1] tracking-tight mb-6">
             LifeCapital
           </h2>
-          
+
           <p className="text-[18px] md:text-[20px] text-slate-500 font-medium leading-[1.6] mb-10">
-            Execution creates value. LifeCapital sustains it over time. We are building LifeCapital as an intelligent financial planning and decision support system, helping you evaluate major financial choices before you make them.
+            Execution creates momentum; LifeCapital aligns it with long-term strategic and capital goals. We are designing LifeCapital as a decision support and timeline simulation system, helping teams assess runway, capital requirements, and strategic trade-offs before committing.
           </p>
-          
-          <button className="group flex items-center justify-center gap-2 px-8 h-[56px] rounded-full bg-slate-900 text-white text-[15px] font-bold hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-[1px]">
-            Explore LifeCapital
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </button>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <Link
+              to="/contact"
+              onClick={() => {
+                trackEvent('cta_click', { cta: 'lifecapital_architecture_inquiry', destination: '/contact' });
+                window.scrollTo(0, 0);
+              }}
+              className="group inline-flex items-center justify-center gap-2 px-8 h-[56px] rounded-full bg-slate-900 text-white text-[15px] font-bold hover:bg-slate-800 transition-all shadow-md outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
+            >
+              Discuss Architecture & Inquiries
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
         </div>
 
         {/* Right: Massive UI Visualization (Lime Green Theme) */}
         <div className="relative w-full h-[600px] flex items-center justify-center">
-          
+
           <div className="absolute inset-0 bg-lime-green/20 rounded-full blur-[100px] z-0" />
 
           {/* Main App UI Mockup */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -59,10 +74,10 @@ export const LifeCapitalSection: React.FC = () => {
 
             {/* Content Area */}
             <div className="p-8 flex flex-col gap-6 bg-white/50 backdrop-blur-md h-[450px]">
-              
+
               {/* Top Metrics Row */}
               <div className="grid grid-cols-2 gap-4">
-                
+
                 {/* Capital Allocation */}
                 <div className="bg-white p-5 rounded-2xl border border-mist-gray shadow-sm flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full border-[4px] border-emerald-green border-r-emerald-green/20 flex items-center justify-center">
@@ -91,15 +106,15 @@ export const LifeCapitalSection: React.FC = () => {
                   <span className="text-[14px] font-bold text-slate-900">Goal: Product Launch</span>
                   <span className="text-[12px] text-slate-500">Simulating...</span>
                 </div>
-                
+
                 <div className="relative flex-1">
                    {/* Vertical Timeline Line */}
                    <div className="absolute left-4 top-2 bottom-2 w-0.5 bg-slate-100" />
-                   
+
                    <div className="flex flex-col gap-6">
-                     
+
                      {/* Milestone 1 */}
-                     <motion.div 
+                     <motion.div
                        initial={{ opacity: 0, x: -10 }}
                        whileInView={{ opacity: 1, x: 0 }}
                        viewport={{ once: true }}
@@ -111,7 +126,7 @@ export const LifeCapitalSection: React.FC = () => {
                      </motion.div>
 
                      {/* Milestone 2 */}
-                     <motion.div 
+                     <motion.div
                        initial={{ opacity: 0, x: -10 }}
                        whileInView={{ opacity: 1, x: 0 }}
                        viewport={{ once: true }}
@@ -122,7 +137,7 @@ export const LifeCapitalSection: React.FC = () => {
                        <span className="text-[13px] font-bold text-slate-900 block mb-1">Beta User Onboarding</span>
                        <span className="text-[11px] text-slate-500 font-bold uppercase tracking-wide">Projected (Week 6)</span>
                      </motion.div>
-                     
+
                    </div>
                 </div>
               </div>
@@ -131,7 +146,7 @@ export const LifeCapitalSection: React.FC = () => {
           </motion.div>
 
           {/* Floating Accents */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}

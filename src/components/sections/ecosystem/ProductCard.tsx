@@ -11,10 +11,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <>
       {/* Node Glass Panel (Expands on Hover) */}
-      <div 
+      <div
         className={`
-          flex items-center p-1.5 rounded-full 
-          bg-white/20 backdrop-blur-3xl border border-white/20 
+          flex items-center p-1.5 rounded-full
+          bg-white/20 backdrop-blur-3xl border border-white/20
           shadow-[0_4px_24px_rgba(0,0,0,0.03),inset_0_1px_0_rgba(255,255,255,0.4)]
           cursor-pointer overflow-hidden
           transition-all duration-500 ease-[0.16,1,0.3,1]
@@ -29,7 +29,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         {/* Circle Icon (Always visible) */}
         <div className={`relative z-10 shrink-0 w-[44px] h-[44px] rounded-full ${product.bgAccent} flex items-center justify-center shadow-[inset_0_2px_4px_rgba(0,0,0,0.04)]`}>
           <div className={`${product.colorClass} group-hover:scale-110 transition-transform duration-500`}>
-            {product.icon}
+            {product.imageIcon ? (
+              <img src={product.imageIcon} alt="" width="20" height="20" className="w-5 h-5 object-contain" />
+            ) : (
+              product.icon
+            )}
           </div>
         </div>
 
@@ -40,7 +44,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <span className="text-[11px] font-medium text-slate-500 leading-tight">{product.description}</span>
           </div>
         </div>
-        
+
         {/* Enter Arrow */}
         <div className="relative z-10 ml-auto mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-150">
             <ArrowRight size={14} className={product.colorClass} />
@@ -48,7 +52,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </div>
 
       {/* Breathing Glow (Default State) */}
-      <motion.div 
+      <motion.div
         animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         className={`absolute top-1/2 left-[28px] -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full ${product.bgAccent} blur-md -z-10 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none`}

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Compass, ArrowRight } from 'lucide-react';
 import { springConfig } from '@/constants/motion';
+import { trackEvent } from '@/utils/analytics';
 
 export const AboutPreviewSection: React.FC = () => {
   const navigate = useNavigate();
@@ -26,12 +27,16 @@ export const AboutPreviewSection: React.FC = () => {
               <p className="text-slate-500 font-medium max-w-lg">We believe technology should amplify human intelligence, not replace it. Explore how we build to reduce cognitive load and preserve human judgment.</p>
             </div>
           </div>
-          
-          <button 
-            onClick={() => { navigate('/philosophy'); window.scrollTo(0,0); }}
-            className="shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-slate-900 text-white text-[14px] font-semibold hover:bg-slate-800 transition-all shadow-sm"
+
+          <button
+            onClick={() => {
+              trackEvent('cta_click', { cta: 'read_philosophy_about_preview', destination: '/philosophy' });
+              navigate('/philosophy');
+              window.scrollTo(0,0);
+            }}
+            className="shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-slate-900 text-white text-[14px] font-semibold hover:bg-slate-800 transition-all shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
           >
-            Enter Vision Hall <ArrowRight size={16} />
+            Read Our Philosophy <ArrowRight size={16} />
           </button>
         </motion.div>
       </div>

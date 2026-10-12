@@ -11,11 +11,11 @@ const PhilosophyPage: React.FC = () => {
 
   return (
     <div className="w-full min-h-screen bg-cotton-white flex flex-col overflow-x-hidden">
-      <SEO 
-        title="EchoTech Philosophy — Human-Centered AI" 
-        description="EchoTech believes that AI should amplify human intelligence, not replace it. Explore our approach to building tools that augment human potential." 
+      <SEO
+        title="EchoTech Philosophy — Human-Centered AI"
+        description="EchoTech believes that AI should amplify human intelligence, not replace it. Explore our approach to building tools that augment human potential."
       />
-      <PhilosophySection />
+      <PhilosophySection isH1={true} />
       <HumanAndAISection />
       <TheTransformationSection />
     </div>

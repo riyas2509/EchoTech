@@ -1,23 +1,25 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Brain, ArrowRight, Network, SplitSquareHorizontal, Lightbulb } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { trackEvent } from '@/utils/analytics';
 
 export const ThinkoriaSection: React.FC = () => {
   return (
     <section className="w-full min-h-[85vh] py-24 flex items-center bg-cotton-white relative overflow-hidden" id="thinkoria">
-      
+
       {/* Mesh background for Thinkoria */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#A874FF08_1px,transparent_1px),linear-gradient(to_bottom,#A874FF08_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 xl:px-16 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-        
+
         {/* Left: Massive UI Visualization (Lavender Theme) */}
         <div className="relative w-full h-[600px] flex items-center justify-center order-2 lg:order-1">
-          
+
           <div className="absolute inset-0 bg-lavender/40 rounded-full blur-[100px] z-0" />
 
           {/* Main App UI Mockup */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -34,7 +36,7 @@ export const ThinkoriaSection: React.FC = () => {
 
             {/* Content Area - Mind Map / Decision Tree */}
             <div className="p-8 flex flex-col items-center justify-center bg-white/50 backdrop-blur-md h-[450px] relative">
-              
+
               {/* Central Node */}
               <div className="w-40 bg-slate-900 text-white p-3 rounded-2xl text-center shadow-lg relative z-20 mb-8 border border-slate-700">
                 <span className="text-[12px] font-bold block mb-1">Core Premise</span>
@@ -49,9 +51,9 @@ export const ThinkoriaSection: React.FC = () => {
 
               {/* Branch Cards (Pros vs Cons) */}
               <div className="flex w-full justify-between px-4 z-20 gap-8">
-                
+
                 {/* Pro Branch */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -69,7 +71,7 @@ export const ThinkoriaSection: React.FC = () => {
                 </motion.div>
 
                 {/* Con Branch */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -89,7 +91,7 @@ export const ThinkoriaSection: React.FC = () => {
               </div>
 
               {/* Alternative Reasoning Generation */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -111,9 +113,9 @@ export const ThinkoriaSection: React.FC = () => {
 
             </div>
           </motion.div>
-          
+
           {/* Floating Accents */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -132,26 +134,39 @@ export const ThinkoriaSection: React.FC = () => {
 
         {/* Right: Product Narrative */}
         <div className="flex flex-col items-start z-10 max-w-[560px] order-1 lg:order-2">
-          
-          <div className="flex flex-col gap-2 mb-8">
+
+          <div className="flex flex-wrap items-center gap-2 mb-4">
             <span className="text-[12px] font-bold text-violet uppercase tracking-widest">Stage 2: Think</span>
-            <div className="w-14 h-14 rounded-2xl bg-lavender/30 border border-violet/20 flex items-center justify-center shadow-sm">
-              <img src="/assets/echotech-icon.png" alt="Thinkoria" loading="lazy" className="h-7 w-auto object-contain" />
-            </div>
+            <span className="px-3 py-0.5 rounded-full bg-purple-50 text-purple-700 text-[11px] font-bold uppercase tracking-wider border border-purple-200">
+              In Design &middot; Architecture
+            </span>
           </div>
-          
+
+          <div className="w-14 h-14 rounded-2xl bg-lavender/30 border border-violet/20 flex items-center justify-center shadow-sm mb-6">
+            <img src="/assets/echotech-icon.png" alt="Thinkoria Logo" loading="lazy" className="h-7 w-auto object-contain" />
+          </div>
+
           <h2 className="text-[clamp(36px,4vw,56px)] font-bold text-slate-900 leading-[1.1] tracking-tight mb-6">
             Thinkoria
           </h2>
-          
+
           <p className="text-[18px] md:text-[20px] text-slate-500 font-medium leading-[1.6] mb-10">
-            EchoNote captures what happened; Thinkoria explores what could happen next. As a long-term vision, we are researching a collaborative 3D reasoning game designed to expand human thinking, challenge your assumptions, and simulate alternative perspectives before you commit.
+            EchoNote captures what happened; Thinkoria explores what could happen next. We are architecting Thinkoria to expand human reasoning, challenge core assumptions, and simulate alternative strategic perspectives before decisions are committed.
           </p>
-          
-          <button className="group flex items-center justify-center gap-2 px-8 h-[56px] rounded-full bg-slate-900 text-white text-[15px] font-bold hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-[1px]">
-            Explore Thinkoria
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </button>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <Link
+              to="/contact"
+              onClick={() => {
+                trackEvent('cta_click', { cta: 'thinkoria_architecture_inquiry', destination: '/contact' });
+                window.scrollTo(0, 0);
+              }}
+              className="group inline-flex items-center justify-center gap-2 px-8 h-[56px] rounded-full bg-slate-900 text-white text-[15px] font-bold hover:bg-slate-800 transition-all shadow-md outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
+            >
+              Discuss Architecture & Research
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
         </div>
 
       </div>

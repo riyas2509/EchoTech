@@ -19,17 +19,17 @@ export const WhatIsBuildingSection: React.FC = () => {
 
   return (
     <section ref={containerRef} className="w-full bg-slate-900 relative overflow-hidden h-[150vh]" id="intelligence-engine">
-      
+
       {/* Background Ambience */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1000px] h-[800px] bg-slate-800/50 rounded-full blur-[150px] pointer-events-none" />
 
       {/* Sticky container that centers perfectly to prevent clipping */}
-      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center px-6 md:px-12 xl:px-16 z-10 overflow-hidden">
-        
-        <div className="text-center mb-10 md:mb-16 max-w-[800px]">
-          <h2 className="text-[clamp(32px,4vw,56px)] font-bold text-white tracking-tight leading-[1.1] mb-4">
+      <div className="sticky top-[72px] h-[calc(100vh-72px)] w-full flex flex-col items-center justify-center px-6 md:px-12 xl:px-16 z-10 overflow-hidden">
+
+        <div className="text-center mb-8 md:mb-12 max-w-[800px]">
+          <h1 className="text-[clamp(32px,4vw,56px)] font-bold text-white tracking-tight leading-[1.1] mb-4">
             The EchoTech Intelligence Engine
-          </h2>
+          </h1>
           <p className="text-[18px] md:text-[20px] text-slate-400 font-medium leading-[1.5]">
             How clarity becomes action.
           </p>
@@ -37,11 +37,11 @@ export const WhatIsBuildingSection: React.FC = () => {
 
         {/* The Massive Interactive Panel */}
         <div className="relative w-full max-w-[1100px] h-[500px] md:h-[600px] bg-slate-950/50 backdrop-blur-2xl rounded-[48px] border border-slate-800 shadow-2xl p-8 flex items-center justify-center">
-          
+
           {/* Centerpiece Visual */}
           <div className="absolute z-30 flex flex-col items-center justify-center">
             <div className="w-24 h-24 md:w-32 md:h-32 bg-white rounded-[32px] md:rounded-[40px] flex items-center justify-center shadow-[0_0_100px_rgba(255,255,255,0.15)] border border-slate-200/50 relative">
-              <img src="/assets/echotech-icon.png" alt="EchoTech" loading="lazy" className="w-20 md:w-28 h-auto object-contain relative z-10" />
+              <img src="/assets/echotech-icon.png" alt="EchoTech" loading="lazy" width="112" height="58" className="w-20 md:w-28 h-auto object-contain relative z-10" />
             </div>
           </div>
 
@@ -71,7 +71,7 @@ export const WhatIsBuildingSection: React.FC = () => {
           </svg>
 
           {/* The 6 Stages */}
-          
+
           {/* 1. Capture */}
           <motion.div style={{ opacity: stage1 }} className="absolute top-[12%] left-[15%] z-20 flex flex-col items-center gap-3 group">
              <div className="w-14 h-14 md:w-16 md:h-16 rounded-[20px] bg-slate-900 border border-sky-blue/40 flex items-center justify-center shadow-[0_0_20px_rgba(142,216,255,0.2)] transition-transform duration-300 group-hover:scale-110">

@@ -8,18 +8,18 @@ const PrivacyPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full min-h-screen bg-cotton-white flex flex-col overflow-x-hidden pt-[72px]">
-      <SEO 
-        title="Privacy Policy — EchoTech" 
-        description="Learn how EchoTech collects, uses, and protects your information." 
+    <div className="w-full min-h-screen bg-cotton-white flex flex-col overflow-x-hidden">
+      <SEO
+        title="Privacy Policy — EchoTech"
+        description="Learn how EchoTech collects, uses, and protects your information."
       />
-      
+
       <main className="flex-1 w-full max-w-[800px] mx-auto px-6 md:px-12 py-16 md:py-24">
         <h1 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-4">Privacy Policy</h1>
         <p className="text-slate-500 text-sm mb-12">Last Updated: September 11, 2026</p>
 
         <div className="prose prose-slate max-w-none text-slate-600 space-y-8">
-          
+
           <section>
             <h2 className="text-2xl font-semibold text-slate-900 mb-4">1. Introduction</h2>
             <p className="leading-relaxed">

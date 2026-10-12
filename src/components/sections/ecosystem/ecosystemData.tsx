@@ -9,6 +9,7 @@ export interface EcosystemProduct {
   name: string;
   description: string;
   icon: React.ReactNode;
+  imageIcon?: string;
   colorClass: string;
   bgAccent: string;
   borderAccent: string;
@@ -25,6 +26,7 @@ export const ecosystemProducts: EcosystemProduct[] = [
     name: 'EchoNote',
     description: 'Intelligent documentation.',
     icon: <FileText size={18} strokeWidth={2.5} />,
+    imageIcon: '/assets/echonote-icon.png',
     colorClass: 'text-[#3E82FF]',
     bgAccent: 'bg-[#D8F2FF]',
     borderAccent: 'border-[#8ED8FF]',
@@ -64,6 +66,7 @@ export const ecosystemProducts: EcosystemProduct[] = [
     name: 'LifeCapital',
     description: 'Autonomous wealth management.',
     icon: <Activity size={18} strokeWidth={2.5} />,
+    imageIcon: '/assets/lifecapital-icon.png',
     colorClass: 'text-[#FF934D]',
     bgAccent: 'bg-[#FFF0E0]',
     borderAccent: 'border-[#FFBC5E]',
@@ -77,6 +80,7 @@ export const ecosystemProducts: EcosystemProduct[] = [
     name: 'EchoOS',
     description: 'The foundation of work.',
     icon: <Layout size={18} strokeWidth={2.5} />,
+    imageIcon: '/assets/echoos-icon.png',
     colorClass: 'text-[#3E82FF]',
     bgAccent: 'bg-[#E3EFFF]',
     borderAccent: 'border-[#8ED8FF]',

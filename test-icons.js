@@ -1,7 +1,3 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
 // We want to test if any of the lucide-react icons imported in UIShowcase are undefined
 import * as lucide from 'lucide-react';
 

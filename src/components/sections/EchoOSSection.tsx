@@ -1,23 +1,24 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Settings, CheckCircle2, MoreHorizontal, Terminal, Activity } from 'lucide-react';
+import { trackEvent } from '@/utils/analytics';
 
 export const EchoOSSection: React.FC = () => {
   return (
     <section className="w-full min-h-[85vh] py-24 flex items-center bg-cotton-white relative overflow-hidden" id="echoos">
-      
+
       {/* Background Dots Grid for EchoOS */}
       <div className="absolute inset-0 bg-[radial-gradient(#68E3B715_1px,transparent_1px)] bg-[size:30px_30px] pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 xl:px-16 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-        
+
         {/* Left: Massive UI Visualization (Mint Green Theme) */}
         <div className="relative w-full h-[600px] flex items-center justify-center order-2 lg:order-1">
-          
+
           <div className="absolute inset-0 bg-mint-green/20 rounded-full blur-[120px] z-0" />
 
           {/* Main App UI Mockup */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -38,12 +39,12 @@ export const EchoOSSection: React.FC = () => {
 
             {/* Content Area - Workflow Builder / Pipeline */}
             <div className="p-8 flex flex-col gap-6 bg-slate-900/50 backdrop-blur-md h-[450px] relative overflow-hidden">
-              
+
               {/* Connecting vertical line */}
               <div className="absolute left-14 top-16 bottom-16 w-1 bg-slate-800 rounded-full" />
-              
+
               {/* Step 1: Complete */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -63,7 +64,7 @@ export const EchoOSSection: React.FC = () => {
               </motion.div>
 
               {/* Step 2: Running */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -85,7 +86,7 @@ export const EchoOSSection: React.FC = () => {
               </motion.div>
 
               {/* Step 3: Pending Approval */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -107,7 +108,7 @@ export const EchoOSSection: React.FC = () => {
           </motion.div>
 
           {/* Floating Accents */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -127,26 +128,38 @@ export const EchoOSSection: React.FC = () => {
 
         {/* Right: Product Narrative */}
         <div className="flex flex-col items-start z-10 max-w-[560px] order-1 lg:order-2">
-          
-          <div className="flex flex-col gap-2 mb-8">
+
+          <div className="flex flex-wrap items-center gap-2 mb-4">
             <span className="text-[12px] font-bold text-mint-green uppercase tracking-widest">Stage 4: Execute</span>
-            <div className="w-14 h-14 rounded-2xl bg-mint-green/10 border border-mint-green/20 flex items-center justify-center shadow-sm">
-              <img src="/assets/echotech-icon.png" alt="EchoOS" loading="lazy" className="h-7 w-auto object-contain" />
-            </div>
+            <span className="px-3 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-bold uppercase tracking-wider border border-emerald-200">
+              Live Product
+            </span>
           </div>
-          
+
+          <div className="w-14 h-14 rounded-2xl bg-mint-green/10 border border-mint-green/20 flex items-center justify-center shadow-sm mb-6">
+            <img src="/assets/echoos-icon.png" alt="EchoOS Logo" loading="lazy" width="38" height="28" className="h-7 w-auto object-contain" />
+          </div>
+
           <h2 className="text-[clamp(36px,4vw,56px)] font-bold text-slate-900 leading-[1.1] tracking-tight mb-6">
             EchoOS
           </h2>
-          
+
           <p className="text-[18px] md:text-[20px] text-slate-500 font-medium leading-[1.6] mb-10">
-            ProtoLens validates. EchoOS executes. EchoOS is designed as a marketplace and execution platform where users can create, sell, buy, and use AI agents, templates, and workflows to turn ideas into outcomes.
+            ProtoLens validates ideas. EchoOS executes them. EchoOS operates as an execution platform and agent orchestration system to run workflows, manage pipelines, and turn approved decisions into automated outcomes.
           </p>
-          
-          <button className="group flex items-center justify-center gap-2 px-8 h-[56px] rounded-full bg-slate-900 text-white text-[15px] font-bold hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-[1px]">
-            Explore EchoOS
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </button>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <a
+              href="https://echonote-2509.web.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent('outbound_product_click', { product: 'echoos', destination: 'https://echonote-2509.web.app/' })}
+              className="group inline-flex items-center justify-center gap-2 px-8 h-[56px] rounded-full bg-slate-900 text-white text-[15px] font-bold hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-[1px] outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
+            >
+              Open EchoOS Workspace
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
         </div>
 
       </div>

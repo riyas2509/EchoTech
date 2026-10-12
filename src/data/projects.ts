@@ -11,53 +11,66 @@ export interface ProjectData {
   coverImage: string;
 }
 
+
 export const projectsData: ProjectData[] = [
   {
     id: 'echonote',
-    logo: '',
+    logo: '/assets/echonote-icon.png',
     title: 'EchoNote',
-    description: 'AI-powered voice transcription and notes.',
-    status: 'Active',
-    technologies: ['React', 'TypeScript', 'AI'],
+    description: 'Enterprise-first audio intelligence and decision memory workspace.',
+    status: 'Live Product',
+    technologies: ['React', 'TypeScript', 'Audio Intelligence'],
     website: 'https://echonote-25.vercel.app/',
-    github: 'https://github.com/riyashah/echonote',
+    github: '',
     featured: true,
-    coverImage: 'https://placehold.co/400x300/e2e8f0/475569?text=EchoNote'
+    coverImage: '/assets/echonote-icon.png'
+  },
+  {
+    id: 'echoos',
+    logo: '/assets/echoos-icon.png',
+    title: 'EchoOS',
+    description: 'Autonomous execution engine and workflow orchestration platform.',
+    status: 'Live Product',
+    technologies: ['React', 'TypeScript', 'Agent Workflows'],
+    website: 'https://echonote-2509.web.app/',
+    github: '',
+    featured: true,
+    coverImage: '/assets/echoos-icon.png'
   },
   {
     id: 'thinkoria',
-    logo: '',
+    logo: '/assets/echotech-icon.png',
     title: 'Thinkoria',
-    description: 'Intelligent knowledge management system.',
-    status: 'In Development',
-    technologies: ['Node.js', 'React'],
-    website: 'https://thinkoria.com',
-    github: 'https://github.com/riyashah/thinkoria',
+    description: 'Cognitive reasoning and strategic perspective simulation platform.',
+    status: 'In Design / Architecture',
+    technologies: ['Systems Architecture', 'Cognitive Science'],
+    website: '',
+    github: '',
     featured: false,
-    coverImage: 'https://placehold.co/400x300/e2e8f0/475569?text=Thinkoria'
+    coverImage: '/assets/echotech-icon.png'
   },
   {
     id: 'protolens',
-    logo: '',
+    logo: '/assets/echotech-icon.png',
     title: 'ProtoLens',
-    description: 'Real-time augmented reality interface.',
-    status: 'Completed',
-    technologies: ['ARKit', 'Swift'],
-    website: 'https://protolens.io',
-    github: 'https://github.com/riyashah/protolens',
+    description: 'Evidence validation and idea risk assessment system.',
+    status: 'In Design / Research',
+    technologies: ['Validation Frameworks', 'Market Signals'],
+    website: '',
+    github: '',
     featured: false,
-    coverImage: 'https://placehold.co/400x300/e2e8f0/475569?text=ProtoLens'
+    coverImage: '/assets/echotech-icon.png'
   },
   {
     id: 'lifecapital',
-    logo: '',
+    logo: '/assets/lifecapital-icon.png',
     title: 'LifeCapital',
-    description: 'Personal finance and wealth tracking.',
-    status: 'Active',
-    technologies: ['React Native', 'Firebase'],
-    website: 'https://lifecapital.app',
-    github: 'https://github.com/riyashah/lifecapital',
-    featured: true,
-    coverImage: 'https://placehold.co/400x300/e2e8f0/475569?text=LifeCapital'
+    description: 'Long-term goal alignment and sustainable capital planning.',
+    status: 'In Product Architecture',
+    technologies: ['Scenario Simulation', 'Strategic Planning'],
+    website: '',
+    github: '',
+    featured: false,
+    coverImage: '/assets/lifecapital-icon.png'
   }
 ];

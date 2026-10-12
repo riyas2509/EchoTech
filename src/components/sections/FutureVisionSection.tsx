@@ -2,20 +2,21 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { trackEvent } from '@/utils/analytics';
 
 export const FutureVisionSection: React.FC = () => {
   return (
     <section className="w-full min-h-[90vh] flex flex-col items-center justify-center bg-black relative overflow-hidden pt-24 pb-24" id="vision">
-      
+
       {/* Deep Cinematic Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[600px] max-w-[1000px] bg-gradient-to-r from-ocean-blue/30 via-violet/20 to-ocean-blue/30 rounded-full blur-[120px] opacity-60" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_20%,_black_80%)]" />
-        
+
         {/* Animated Particles/Stars */}
         <div className="absolute inset-0 opacity-40">
            {[...Array(30)].map((_, i) => (
-             <motion.div 
+             <motion.div
                key={i}
                initial={{ opacity: Math.random(), scale: Math.random() * 0.5 + 0.5 }}
                animate={{ opacity: [0.2, 0.8, 0.2], scale: [0.8, 1.2, 0.8] }}
@@ -28,8 +29,8 @@ export const FutureVisionSection: React.FC = () => {
       </div>
 
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 xl:px-16 text-center z-10 w-full">
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -45,7 +46,7 @@ export const FutureVisionSection: React.FC = () => {
         </motion.div>
 
         {/* The Massive Interaction Area */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -54,27 +55,33 @@ export const FutureVisionSection: React.FC = () => {
         >
           {/* Glow Behind Button */}
           <div className="absolute inset-0 bg-ocean-blue rounded-full blur-[40px] opacity-40 animate-pulse" />
-          
-          <Link 
+
+          <Link
             to="/contact"
-            onClick={() => window.scrollTo(0,0)}
+            onClick={() => {
+              trackEvent('cta_click', { cta: 'connect_future_vision', destination: '/contact' });
+              window.scrollTo(0,0);
+            }}
             className="group relative flex items-center justify-center gap-4 px-10 h-[64px] rounded-full bg-white text-slate-900 text-[18px] font-bold hover:scale-105 transition-all duration-300 shadow-[0_0_50px_rgba(255,255,255,0.2)]"
           >
-            Start Building with EchoTech
+            Connect with EchoTech
             <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-ocean-blue group-hover:text-white transition-colors">
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </div>
           </Link>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 1, duration: 1 }}
-          className="mt-16 flex items-center justify-center gap-8 text-slate-500 font-medium text-[14px]"
+          transition={{ delay: 0.8, duration: 0.8 }}
+          className="mt-16 flex items-center justify-center gap-8 text-slate-400 font-medium text-[14px]"
         >
-          <span className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-violet" /> Launch Date: 21 October 2026</span>
+          <span className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            Live Product: EchoNote &middot; Ecosystem in Active Expansion
+          </span>
         </motion.div>
 
       </div>
